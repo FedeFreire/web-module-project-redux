@@ -11,8 +11,8 @@ import MovieHeader from './MovieHeader';
 import AddMovieForm from './AddMovieForm';
 import FavoriteMovieList from './FavoriteMovieList';
 
-const App = props => {
-  const displayFavorites = true;
+const App = ({ displayFavorites }) => { 
+ 
 
   return (
     <div>
@@ -48,4 +48,8 @@ const App = props => {
   );
 };
 
-export default App;
+const mapStateToProps = (state) => ({
+  displayFavorites: state.favorites.displayFavorites, // Map Redux state to component props
+});
+
+export default connect(mapStateToProps)(App); 
